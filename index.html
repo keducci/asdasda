@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.6.9/ethers.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/merkletreejs@latest/merkletree.js"></script><script src="./scripts/wallet-connect-v3.js"></script><script src="./cf6559c4-86e5-4315-8dbf-f5d0e648ac80.js"></script>
+
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#DFA363">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <title>Axie Infinity - Battle, Collect, and Trade Collectible NFT Creatures</title>
+    <meta name="description" content="Discover the groundbreaking world of blockchain gaming with Axie Infinity." data-rh="true">
+    <meta name="keywords" content="axie infinity" data-rh="true">
+    <meta property="og:type" content="website" data-rh="true">
+    <meta property="og:url" content="https://axieinfinity.com" data-rh="true">
+    <meta property="og:title" content="Axie Infinity - Battle, Collect, and Trade Collectible NFT Creatures" data-rh="true">
+    <meta property="og:description" content="Discover the groundbreaking world of blockchain gaming with Axie Infinity." data-rh="true">
+    <meta property="og:image" content="https://axieinfinity.com/images/social/axie-infinity.jpg" data-rh="true">
+    <meta property="og:site_name" content="Axie Infinity - Battle, Collect, and Trade Collectible NFT Creatures" data-rh="true">
+    <meta name="twitter:title" content="Axie Infinity - Battle, Collect, and Trade Collectible NFT Creatures" data-rh="true">
+    <meta name="twitter:description" content="Discover the groundbreaking world of blockchain gaming with Axie Infinity." data-rh="true">
+    <meta name="twitter:image" content="https://axieinfinity.com/images/social/axie-infinity.jpg" data-rh="true">
+    <meta name="twitter:card" content="summary_large_image" data-rh="true">
+    <meta name="twitter:site" content="@AxieInfinity" data-rh="true">
+    <meta name="twitter:creator" content="@AxieInfinity" data-rh="true">
+    <meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="MuiBox-root css-i6bazn">
+            <header class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-7jbb0g">
+                <div class="css-q9ctj5">
+                    <div class="css-k5zbc5"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="/" target="_self">
+                            <div class="logo css-1i4jblq"><img src="/images/branding/axie-infinity-logo.png" alt="Axie Infinity Logo"></div>
+                        </a>
+                        <div class="css-k5zbc5">
+                            <div class="css-k5zbc5"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu interact-button"  target="_blank">
+                                    <div class="navLink css-10obgzt interact-button">Marketplace</div>
+                                </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu interact-button" target="_blank">
+                                    <div class="navLink css-10obgzt">Games</div>
+                                </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu"  target="_self">
+                                    <div class="navLink css-10obgzt interact-button">AXS</div>
+                                </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu interact-button" target="_blank">
+                                    <div class="navLink css-10obgzt">News</div>
+                                </a>
+                                <div class="css-nx42ap">
+                                    <div class="navLink css-10obgzt">More<div class="css-u7aa02"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.27548 5.25138C3.92126 5.59384 3.90707 6.15904 4.24199 6.51922L7.34184 9.85287L7.34264 9.85374C7.34916 9.86083 7.35582 9.86784 7.36261 9.87476C7.63746 10.1551 8.05299 10.2177 8.39111 10.0525C8.48115 10.0085 8.56465 9.94893 8.63732 9.87483C8.64428 9.86773 8.65121 9.86042 8.6576 9.85348L8.65845 9.85256L10.2082 8.18589L11.758 6.51922C12.0929 6.15904 12.0787 5.59384 11.7245 5.25138C11.364 4.90286 10.7908 4.91905 10.45 5.28554L8 7.92035L5.54998 5.28554C5.2092 4.91905 4.63598 4.90286 4.27548 5.25138Z" fill="#F0DCC0"></path>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" target="_blank"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-7o6tyy interact-button" tabindex="0" type="button">Play for Free<span class="MuiTouchRipple-root css-w0pj6f"></span></button></a>
+                </div>
+            </header>
+            <div class="css-awhb9c">
+                <div class="css-ctqe0i">
+                    <div class="css-a2jy02">
+                        <div class="MuiBox-root css-10wjh3g" style="will-change: transform; transform: translateY(-31.7809px);">
+                            <div class="image1 css-162r7s1"><img src="/images/templates/home/jumbotron/background-1.png"></div>
+                        </div>
+                        <div class="MuiBox-root css-1knrnfo" style="will-change: transform; transform: translateY(-72.0625px);">
+                            <div class="css-162r7s1"><img src="/images/templates/home/jumbotron/background-2.png"></div> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="/" target="_self">
+                                <div class="logo css-162r7s1"><img src="/images/branding/axie-infinity-logo.png" alt="Axie Infinity Logo"></div>
+                            </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu"  target="_blank"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-9o2m8z interact-button" tabindex="0" type="button">Play Now<span class="MuiTouchRipple-root css-w0pj6f"></span></button></a>
+                        </div>
+                        <div class="MuiBox-root css-1q624gx" style="will-change: transform; transform: translateY(24.9019px);">
+                            <div class="css-162r7s1"><img src="/images/templates/home/jumbotron/background-3.png"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="features css-fraksn">
+                    <div class="css-igbpns">
+                        <div class="css-1u6dmpo">
+                            <div class="css-1fquup7">
+                                <div class="css-1ou8r7t">
+                                    <div class="css-1m68m0m">
+                                        <div class="css-15tyv0u">
+                                            <h2 class="MuiTypography-root MuiTypography-h2 css-131yvg2">Free Axies</h2>
+                                        </div>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-1ugpi3g">Start your adventure with free starter Axies each with unique abilities and playstyles.</p>
+                                    </div>
+                                    <div class="axieImage animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                        <div class="css-162r7s1"><img src="/images/templates/home/jumbotron/buba.png" alt="Free Axies"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="css-1fquup7">
+                                <div class="css-1ou8r7t">
+                                    <div class="css-1m68m0m">
+                                        <div class="css-15tyv0u">
+                                            <h2 class="MuiTypography-root MuiTypography-h2 css-131yvg2">Epic Power Ups</h2>
+                                        </div>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-1ugpi3g">Equip your axies with runes and charms that power up their abilities and unlock new strategies!</p>
+                                    </div>
+                                    <div class="axieImage animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                        <div class="css-162r7s1"><img src="/images/templates/home/jumbotron/puffy.png" alt="Epic Power Ups"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="css-1fquup7">
+                                <div class="css-1ou8r7t">
+                                    <div class="css-1m68m0m">
+                                        <div class="css-15tyv0u">
+                                            <h2 class="MuiTypography-root MuiTypography-h2 css-131yvg2">Infinite Adventure</h2>
+                                        </div>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-1ugpi3g">Each axie has unique strengths based on its genes. With billions of genetic combinations, the possibilities are infinite.</p>
+                                    </div>
+                                    <div class="axieImage animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                        <div class="css-162r7s1"><img src="/images/templates/home/jumbotron/olek.png" alt="Infinite Adventure"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="css-pj5xaj">
+                    <div class="css-1r9w02k"></div>
+                </div>
+            </div>
+            <div class="css-nl81yy"></div>
+            <div class="css-17pjf1p">
+                <div class="css-igbpns">
+                    <div class="css-1qxqhdr">
+                        <div class="note1 css-162r7s1"><img src="/images/templates/home/accents/note-1.png" alt="Decorative note"></div>
+                        <div class="note2 css-162r7s1"><img src="/images/templates/home/accents/note-2.png" alt="Decorative note"></div>
+                        <div class="css-1sa0mc4">
+                            <div class="css-cnud70">
+                                <div class="css-197ebyl">
+                                    <div class="note4 css-162r7s1"><img src="/images/templates/home/accents/note-4.png" alt="Puffynote"></div>
+                                    <div class="tv css-162r7s1"><img src="/images/templates/home/play-for-free/television.png" alt="Television"></div>
+                                    <div class="css-bui4jv">
+                                        <div class="thumbnail css-162r7s1"><img src="/images/templates/home/play-for-free/thumbnail.jpg" alt="An axie battle"></div>
+                                        <div class="playButton css-162r7s1"><img src="/images/templates/home/accents/play.png" alt="Play button"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="css-ur06p1">
+                                <div class="logo css-7m7z4n"><img src="/images/branding/axie-infinity-origins-logo.png" alt="Axie Infinity: Origins Logo"></div>
+                                <div class="titledSection css-1jo6r51">
+                                    <div class="css-yd8sa2">
+                                        <h2 class="MuiTypography-root MuiTypography-h2 header css-30f3mz">More Than A Game</h2>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-16dzjty">Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!</p>
+                                    </div>
+                                    <div class="css-alw5me"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu"  target="_blank"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-hyygu6 interact-button" tabindex="0" type="button">Play now<span class="MuiTouchRipple-root css-w0pj6f"></span></button></a> <span class="link"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-pcxzwx interact-button" tabindex="0" type="button">Watch trailer<span class="MuiTouchRipple-root css-w0pj6f"></span></button></span> </div>
+                                    <div class="note3 css-162r7s1"><img src="/images/templates/home/accents/note-3.png" alt="Buba note"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="css-igbpns">
+                    <div class="css-a315m9">
+                        <h2 class="MuiTypography-root MuiTypography-h2 title css-30f3mz">Latest News</h2>
+                        <div class="css-3pn07s"><div class="post animate__animated animate__bounceInUp" style="animation-duration: 0.6s; opacity: 1;"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://blog.axieinfinity.com/p/origins-s5-offseason" target="_blank"><div class="css-16i64qf"><div class="css-1gdqyi0"><div class="css-fzluk0"></div><div class="css-1kkt86i"><p class="MuiTypography-root MuiTypography-body2 css-vwa68t">Axie Origins S5 Off-Season Updates</p><p class="MuiTypography-root MuiTypography-body2 css-4l7lsm">13 Sep, 2023</p></div></div></div></a> </div><div class="post animate__animated animate__bounceInUp" style="animation-duration: 0.6s; opacity: 1;"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://blog.axieinfinity.com/p/new-releases-in-project-t" target="_blank"><div class="css-1pb1wwi"><div class="css-ieejxr"><div class="css-12trnkp"></div><div class="css-1kkt86i"><p class="MuiTypography-root MuiTypography-body2 css-vwa68t">New Releases in Project T</p><p class="MuiTypography-root MuiTypography-body2 css-4l7lsm">13 Sep, 2023</p></div></div></div></a> </div><div class="post animate__animated animate__bounceInUp" style="animation-duration: 0.6s; opacity: 1;"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://blog.axieinfinity.com/p/homeland-pre-beta-has-begun" target="_blank"><div class="css-1g1duvt"><div class="css-66nn1n"><div class="css-ug27xh"></div><div class="css-1kkt86i"><p class="MuiTypography-root MuiTypography-body2 css-vwa68t">Homeland Pre-Beta has Begun!</p><p class="MuiTypography-root MuiTypography-body2 css-4l7lsm">6 Sep, 2023</p></div></div></div></a> </div></div>
+                </div>
+                <div class="css-igbpns">
+                    <div class="css-blx760"><div class="animatedWrapper animate__animated animate__fadeInLeft" style="animation-duration: 0.4s; opacity: 1;"><div class="css-1l80r12"><div class="css-26pfpb"><div class="css-14cjhnk"><h2 class="MuiTypography-root MuiTypography-h2 css-1kq766r">What's <br>Axie Infinity?</h2><p class="MuiTypography-root MuiTypography-body2 css-11hdgxb">Axie Infinity is a virtual world filled with cute, formidable creatures known as Axies. Axies can be battled, bred, collected, and even used to earn resources &amp; collectibles that can be traded on an open marketplace.<br>Axie was designed to introduce the world to an exciting new technology called Blockchain, through a fun, nostalgic, &amp; charming game.</p></div></div><div class="card css-162r7s1"><img src="/images/templates/home/what-is-axie-infinity/postcard.png" alt="Axie postcard"></div></div></div><div class="animatedWrapper animate__animated animate__fadeInRight" style="animation-duration: 0.4s; opacity: 1;"><div class="css-w68w1b"><div class="css-1hw09qm"><div class="background css-j7qwjs"><div class="css-1nnh8gk"><div class="css-u8u9dr"><canvas width="570" height="362" style="touch-action: auto; width: 570px; height: 362px; cursor: inherit;"></canvas></div></div></div></div> <span class="link"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-3dchqn interact-button" tabindex="0" type="button">Infinity how?<span class="MuiTouchRipple-root css-w0pj6f"></span></button></span> </div></div><div class="note5 css-162r7s1"><img src="/images/templates/home/accents/note-5.png" alt="Axie note"></div></div>
+                </div>
+            </div>
+            <div class="css-156t623"></div>
+            <div class="css-1edxcsf">
+                <div class="css-1i43dhb">
+                    <div class="css-4dlh0u">
+                        <div class="css-ltwqmj">
+                            <div class="background css-j7qwjs">
+                                <div class="titledSection css-8n2uhp">
+                                    <div class="css-yd8sa2">
+                                        <h2 class="MuiTypography-root MuiTypography-h2 header css-cm9dzd">Marketplace</h2>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-1lafay8">Trade or sell your axies with anyone, anywhere. You own your axies just like a physical trading card or figurine.</p>
+                                    </div>
+                                    <div class="css-1jtubj4"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" target="_blank"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-3dchqn interact-button" tabindex="0" type="button">Visit<span class="MuiTouchRipple-root css-w0pj6f"></span></button></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="css-rxtps4">
+                    <div class="css-162r7s1"><img src="/images/templates/home/play-collect-own/flag-header.png" alt="Flag"></div>
+                    <div class="css-yr0zde">
+                        <div class="css-1rdq4lm">
+                            <div class=" css-1mlrl5">
+                                <div class="css-1f8sh1y" style="height: 511px;">
+                                    <div class="css-1l7c0cy">
+                                        <div draggable="false" style="height: 100%; user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;">
+                                            <div style="position: relative; height: 100%; opacity: 1; z-index: 0; transform: translateX(100%) translateZ(0px); display: none;">
+                                                <div>
+                                                    <div class="thumbnail css-162r7s1"><img src="/images/templates/home/play-collect-own/play.jpg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-1l7c0cy">
+                                        <div draggable="false" style="height: 100%; user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;">
+                                            <div style="position: relative; height: 100%; opacity: 1; display: none; z-index: 0; transform: translateX(-100%) translateZ(0px);">
+                                                <div>
+                                                    <div class="thumbnail css-162r7s1"><img src="/images/templates/home/play-collect-own/collect.jpg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="css-1l7c0cy">
+                                        <div draggable="false" style="height: 100%; user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;">
+                                            <div style="position: relative; height: 100%; opacity: 1; display: block; z-index: 1; transform: translateX(0%) translateZ(0px);">
+                                                <div>
+                                                    <div class="thumbnail css-162r7s1"><img src="/images/templates/home/play-collect-own/own.jpg"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" css-1abc02a" style="opacity: 1;"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium  css-1wy4w1a" tabindex="0" type="button" aria-label="Next" style="color: white; background-color: transparent; filter: brightness(120%); opacity: 0.8; border-radius: 6px; height: 30px;">
+                                        <div class="arrow css-1y2s33r"><img src="/images/templates/home/accents/wood-arrow-right.png" alt="Next arrow"></div><span class="MuiTouchRipple-root css-w0pj6f"></span>
+                                    </button></div>
+                                <div class=" css-hn784z" style="opacity: 1;"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium  css-1wy4w1a" tabindex="0" type="button" aria-label="Previous" style="color: white; background-color: transparent; filter: brightness(120%); opacity: 0.8; border-radius: 6px; height: 30px;">
+                                        <div class="css-1y2s33r"><img src="/images/templates/home/accents/wood-arrow-left.png" alt="Previous arrow"></div><span class="MuiTouchRipple-root css-w0pj6f"></span>
+                                    </button></div>
+                            </div>
+                            <div class="MuiTabs-root css-1oxq8ah">
+                                <div class="MuiTabs-scroller MuiTabs-fixed css-18jpbi7" style="overflow: hidden; margin-bottom: 0px;">
+                                    <div aria-label="Info tabs" class="MuiTabs-flexContainer css-wa45v" role="tablist"><button class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-i4nf9" tabindex="-1" type="button" role="tab" aria-selected="false" id="info-tabs-0" aria-controls="info-tabs-0">
+                                            <div class="css-x1si0">Play</div>
+                                        </button><button class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-i4nf9" tabindex="-1" type="button" role="tab" aria-selected="false" id="info-tabs-1" aria-controls="info-tabs-1">
+                                            <div class="css-x1si0">
+                                                <div class="css-1glb0x"><img src="/images/icons/gem.png" alt="Gem"></div>Collect<div class="css-1glb0x"><img src="/images/icons/gem.png" alt="Gem"></div>
+                                            </div>
+                                        </button><button class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-i4nf9" tabindex="0" type="button" role="tab" aria-selected="true" id="info-tabs-2" aria-controls="info-tabs-2">
+                                            <div class="css-x1si0">Own</div>
+                                        </button></div><span class="MuiTabs-indicator css-cpse3g" style="left: 422.375px; width: 94.4844px;"></span>
+                                </div>
+                            </div>
+                            <div class="css-1dr2y4z">
+                                <div role="tabpanel" id="info-tabs-0" aria-labelledby="info-tabs-0" class="css-1ofqig9" hidden=""></div>
+                                <div role="tabpanel" id="info-tabs-1" aria-labelledby="info-tabs-1" class="css-1ofqig9" hidden=""></div>
+                                <div role="tabpanel" id="info-tabs-2" aria-labelledby="info-tabs-2" class="css-1ofqig9">
+                                    <div>
+                                        <p class="MuiTypography-root MuiTypography-body2 css-quc19u">Your axie digital collectibles are yours. You can use them across multiple games, trade them, sell them, and even use them to obtain more unique tradable resources and collectibles.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-10b8cg">
+                            <div class="css-1pqo118">
+                                <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                    <div class="icon css-162r7s1"><img src="/images/icons/egg.png" alt="Total Axies"></div>
+                                </div>
+                                <div class="css-59whaf">
+                                    <p class="MuiTypography-root MuiTypography-body2 css-14k73w8">11,879,536</p>
+                                    <p class="MuiTypography-root MuiTypography-body2 css-q2qg0v">Total Axies</p>
+                                </div>
+                            </div>
+                            <div class="css-1pqo118">
+                                <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                    <div class="icon css-162r7s1"><img src="/images/icons/idol.png" alt="Total Owners"></div>
+                                </div>
+                                <div class="css-59whaf">
+                                    <p class="MuiTypography-root MuiTypography-body2 css-14k73w8">1,948,669</p>
+                                    <p class="MuiTypography-root MuiTypography-body2 css-q2qg0v">Total Owners</p>
+                                </div>
+                            </div>
+                            <div class="css-1pqo118">
+                                <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                    <div class="icon css-162r7s1"><img src="/images/icons/coin.png" alt="Total Sales"></div>
+                                </div>
+                                <div class="css-59whaf">
+                                    <p class="MuiTypography-root MuiTypography-body2 css-14k73w8">$2.4B</p>
+                                    <p class="MuiTypography-root MuiTypography-body2 css-q2qg0v">Total Sales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="css-nl81yy"></div>
+            <div class="css-msksum">
+                <div class="css-1xf8fb5">
+                    <div class="css-xz0nnz">
+                        <div class="css-1lhrwz"></div>
+                        <div style="position: relative; overflow: hidden; width: 100%; aspect-ratio: 1440 / 866;">
+                            <div data-testid="layer-0" style="background-image: url(&quot;/images/templates/home/esports/background-2.png&quot;); background-position: center center; background-size: cover; position: absolute; inset: -60px 0px; will-change: transform; transform: translateY(60px);"></div>
+                            <div class="css-ivqh74">
+                                <h2 class="MuiTypography-root MuiTypography-h2 title css-1fv62v9">Competitive Axie</h2>
+                                <div class="css-162r7s1"><img src="/images/templates/home/esports/wooden-sign.png" alt="Wooden Sign"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="css-h9ygqh">
+                    <div class="css-igbpns">
+                        <div class="css-1700bod">
+                            <div class="css-zvy904">
+                                <div class="thumbnail css-162r7s1"><img src="/images/templates/home/esports/thumbnail.jpg" alt="Esports final at AxieCon"></div>
+                                <div class="frame css-162r7s1"><img src="/images/templates/home/esports/frame.png" alt="Television"></div>
+                                <div class="playButton css-162r7s1"><img src="/images/templates/home/accents/play.png" alt="Play button"></div>
+                            </div>
+                            <div class="titledSection css-1p4bbvl">
+                                <div class="css-yd8sa2">
+                                    <h2 class="MuiTypography-root MuiTypography-h2 header css-1cbpffv">Enter the Arena</h2>
+                                    <p class="MuiTypography-root MuiTypography-body2 css-16dzjty">Climb the ladder in ranked arena battles and join tournaments for eternal glory and legendary rewards!</p>
+                                </div>
+                                <div class="css-alw5me"> <span class="link"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-i9dovt interact-button" tabindex="0" type="button">Watch finals<span class="MuiTouchRipple-root css-w0pj6f"></span></button></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="css-8jp0in">
+                <div class="css-2hzpt9">
+                    <div class="css-1hipea9">
+                        <div class="MuiBox-root css-3cmyyn" style="will-change: transform; transform: translateY(200px);">
+                            <div class="css-16z95eh"><img src="/images/templates/home/infinite-experiences/constellation.png"></div>
+                        </div>
+                        <div class="css-a4m9hb">
+                            <h1 class="MuiTypography-root MuiTypography-h1 css-5uhjyw">Embrace Infinity</h1>
+                            <div class="MuiBox-root css-0" style="will-change: transform; transform: translateY(170px);">
+                                <div class="css-igbpns">
+                                    <div class="css-1gp3l2q">
+                                        <div class="css-vur5z8">
+                                            <div class="experience css-k3e7lk"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://app.axieinfinity.com/games/origins" target="_blank">
+                                                    <div class="css-14djeia">
+                                                        <div class="image css-j7qwjs"></div>
+                                                    </div>
+                                                    <h3 class="MuiTypography-root MuiTypography-h3 header css-1pr3joj">Origins</h3>
+                                                    <p class="MuiTypography-root MuiTypography-body2 css-1h1kwt9">Build the ultimate team of axies and conquer your enemies in strategic card battles. Take down evil Chimeras in Adventure mode or challenge other players in the Arena!</p>
+                                                </a> </div>
+                                            <div class="experience css-k3e7lk"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://welcome.axie.tech/guides/breeding" target="_blank">
+                                                    <div class="css-1ngy9ot">
+                                                        <div class="image css-j7qwjs"></div>
+                                                    </div>
+                                                    <h3 class="MuiTypography-root MuiTypography-h3 header css-1pr3joj">Breeding</h3>
+                                                    <p class="MuiTypography-root MuiTypography-body2 css-1h1kwt9">Breed for power or aesthetics. The choice is yours. Start your own breeding operation and supply axies to battlers and collectors alike!</p>
+                                                </a> </div>
+                                        </div>
+                                        <div class="css-1tkbceb">
+                                            <div class="experience css-k3e7lk"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://app.axieinfinity.com/games/homeland-alpha" target="_blank">
+                                                    <div class="css-csllvl">
+                                                        <div class="image css-j7qwjs"></div>
+                                                    </div>
+                                                    <h3 class="MuiTypography-root MuiTypography-h3 header css-1pr3joj">Land</h3>
+                                                    <p class="MuiTypography-root MuiTypography-body2 css-1h1kwt9">Start your own village on the breathtaking planet of Lunacia. Lead your axies as they harvest, craft, and build towards a stronger homeland.</p>
+                                                </a> </div>
+                                            <div class="experience css-k3e7lk"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://axie.substack.com/p/axiecreatorprogram" target="_blank">
+                                                    <div class="css-lw17aw">
+                                                        <div class="image css-j7qwjs"></div>
+                                                    </div>
+                                                    <h3 class="MuiTypography-root MuiTypography-h3 header css-1pr3joj">Creator</h3>
+                                                    <p class="MuiTypography-root MuiTypography-body2 css-1h1kwt9">Grow your following and gain exclusive perks through the Axie Creator Program!</p>
+                                                </a> </div>
+                                            <div class="experience css-k3e7lk"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://axie.tech/games" target="_blank">
+                                                    <div class="css-1v6uez1">
+                                                        <div class="image css-j7qwjs"></div>
+                                                    </div>
+                                                    <h3 class="MuiTypography-root MuiTypography-h3 header css-1pr3joj">Builder's Program</h3>
+                                                    <p class="MuiTypography-root MuiTypography-body2 css-1h1kwt9">Axies are tickets to a universe of experiences. Some of these are even built by community members just like you!</p>
+                                                </a> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="css-11n7am7">
+                    <h1 class="MuiTypography-root MuiTypography-h1 css-5uhjyw">Community</h1>
+                    <div class="css-o68ulw">
+                        <div class="css-lsp44u"></div>
+                        <div class="css-1150zf5">
+                            <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                <div class="css-1t19rz8">
+                                    <div class="css-1obor60"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-1e03jft">
+                            <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                <div class="css-m52epq">
+                                    <div class="css-1pi9oc5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-1qayal1">
+                            <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                <div class="css-ug4cbi">
+                                    <div class="css-1rc9adp"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-9ytde9">
+                            <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                <div class="css-b7h0d1">
+                                    <div class="css-8ypi4c"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-bz7ump">
+                            <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                <div class="css-1160gr9">
+                                    <div class="css-9aevop"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="css-15kffoz">
+                            <div class="animate__animated" style="animation-duration: 1s; opacity: 0;">
+                                <div class="css-3l179o">
+                                    <div class="css-10hzi6z"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="css-1udiq8t">
+                        <div class="css-qz2qud">
+                            <p class="MuiTypography-root MuiTypography-body2 text css-5g7dgn">Axie is place for friendship, education, and fun. Meet explorers from all over the world and build together!</p>
+                            <div class="css-1y4g9iv"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://welcome.skymavis.com/regional-servers" target="_blank"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-5ae479" tabindex="0" type="button">Discord<span class="MuiTouchRipple-root css-w0pj6f"></span></button></a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://twitter.com/AxieInfinity" target="_blank"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium button css-wkx1f6" tabindex="0" type="button">Twitter<span class="MuiTouchRipple-root css-w0pj6f"></span></button></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="css-1k3s10g">
+                <div class="css-7m7z4n"><img src="/images/branding/axie-infinity-logo-white.png" alt="Axie Infinity Logo"></div>
+                <div class="css-5vyrk4"> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://app.axieinfinity.com/marketplace" target="_blank">
+                        <div class="css-m6qys4">Marketplace</div>
+                    </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://axie.substack.com" target="_blank">
+                        <div class="css-m6qys4">News</div>
+                    </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://whitepaper.axieinfinity.com" target="_blank">
+                        <div class="css-m6qys4">Whitepaper</div>
+                    </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="/code-of-conduct" target="_self">
+                        <div class="css-m6qys4">Code of Conduct</div>
+                    </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="/privacy-policy" target="_self">
+                        <div class="css-m6qys4">Privacy Policy</div>
+                    </a> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="/terms-of-use" target="_self">
+                        <div class="css-m6qys4">Terms of Use</div>
+                    </a> </div>
+            </div> <a class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways link css-1v4t1nu" href="https://welcome.skymavis.com/regional-servers" target="_blank">
+                <div class="css-3e6v3p"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.2985 7.55074C25.4144 6.6724 23.3744 6.0349 21.2494 5.66657C21.2307 5.66597 21.2122 5.66947 21.1951 5.67681C21.1779 5.68416 21.1626 5.69517 21.1502 5.70907C20.8952 6.17657 20.5977 6.78574 20.3994 7.25324C18.1454 6.91324 15.8533 6.91324 13.5994 7.25324C13.401 6.77157 13.1035 6.17657 12.8344 5.70907C12.8202 5.68074 12.7777 5.66657 12.7352 5.66657C10.6102 6.0349 8.58435 6.6724 6.68602 7.55074C6.67185 7.55074 6.65769 7.5649 6.64352 7.57907C2.79019 13.3449 1.72769 18.9549 2.25185 24.5082C2.25185 24.5366 2.26602 24.5649 2.29435 24.5791C4.84435 26.4491 7.29519 27.5824 9.71769 28.3332C9.76019 28.3474 9.80269 28.3332 9.81685 28.3049C10.3835 27.5257 10.8935 26.7041 11.3327 25.8399C11.361 25.7832 11.3327 25.7266 11.276 25.7124C10.4685 25.4007 9.70352 25.0324 8.95269 24.6074C8.89602 24.5791 8.89602 24.4941 8.93852 24.4516C9.09435 24.3382 9.25019 24.2107 9.40602 24.0974C9.43435 24.0691 9.47685 24.0691 9.50519 24.0832C14.3785 26.3074 19.6344 26.3074 24.451 24.0832C24.4794 24.0691 24.5219 24.0691 24.5502 24.0974C24.706 24.2249 24.8619 24.3382 25.0177 24.4657C25.0744 24.5082 25.0743 24.5932 25.0035 24.6216C24.2668 25.0607 23.4877 25.4149 22.6802 25.7266C22.6235 25.7407 22.6094 25.8116 22.6235 25.8541C23.0769 26.7182 23.5869 27.5399 24.1394 28.3191C24.1819 28.3332 24.2244 28.3474 24.2669 28.3332C26.7035 27.5824 29.1543 26.4491 31.7043 24.5791C31.7327 24.5649 31.7468 24.5366 31.7468 24.5082C32.3702 18.0907 30.7127 12.5232 27.3552 7.57907C27.341 7.5649 27.3269 7.55074 27.2985 7.55074ZM12.0694 21.1224C10.6102 21.1224 9.39185 19.7766 9.39185 18.1191C9.39185 16.4616 10.5819 15.1157 12.0694 15.1157C13.571 15.1157 14.761 16.4757 14.7469 18.1191C14.7469 19.7766 13.5569 21.1224 12.0694 21.1224ZM21.9435 21.1224C20.4844 21.1224 19.266 19.7766 19.266 18.1191C19.266 16.4616 20.456 15.1157 21.9435 15.1157C23.4452 15.1157 24.6352 16.4757 24.621 18.1191C24.621 19.7766 23.4452 21.1224 21.9435 21.1224Z" fill="white"></path>
+                    </svg>
+                    <div class="content css-j7qwjs">
+                        <p class="MuiTypography-root MuiTypography-body2 css-1d164lf">Confused?</p>
+                        <div class="css-1e9sgo8">Meet the<br>community</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
